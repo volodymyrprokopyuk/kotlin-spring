@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="literalMessageProvider" class="org.vld.spring.ps5.ch02.LiteralMessageProvider"/>
+    <bean id="plainTextMessageRenderer" class="org.vld.spring.ps5.ch02.PlainTextMessageRenderer"
+          c:messageProvider-ref="literalMessageProvider"/>
+
+</beans>

@@ -1,0 +1,109 @@
+buildscript {
+    ext {
+        kotlinGradlePluginVersion = "1.1.51"
+        junitPlatformGradlePluginVersion = "1.0.1"
+        dokkaGradlePluginVersion = "0.9.15"
+        detektGradlePluginVersion = "1.0.0.RC4-3"
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformGradlePluginVersion"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaGradlePluginVersion"
+        classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektGradlePluginVersion"
+    }
+}
+
+apply plugin: "kotlin"
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+apply plugin: "org.junit.platform.gradle.plugin"
+
+junitPlatform {
+    filters {
+        engines {
+            include "junit-jupiter"
+        }
+    }
+}
+
+apply plugin: "org.jetbrains.dokka"
+
+dokka {
+    outputFormat = "html"
+    outputDirectory = "$buildDir/dokka"
+}
+
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    profile("main") {
+//        config = "$projectDir/detekt.yml"
+        input = "$projectDir/src"
+    }
+}
+
+apply plugin: "application"
+
+mainClassName = "org.vld.spring.MainKt"
+
+ext {
+    kotlinVersion = "1.1.51"
+    springVersion = "5.0.0.RELEASE"
+    junitJupiterVersion = "5.0.1"
+    assertJVersion = "3.8.0"
+    mockitoVersion = "2.11.0"
+    ktLintVersion = "0.10.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
+    testCompile "org.assertj:assertj-core:$assertJVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    ktlint "com.github.shyiko:ktlint:$ktLintVersion"
+}
+
+task ktLint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style"
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "--verbose", "src/**/*.kt"
+}
+
+check.dependsOn ktLint
+task ktFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations"
+    main = "com.github.shyiko.ktlint.Main"
+    classpath = configurations.ktlint
+    args "-F", "src/**/*.kt"
+}
