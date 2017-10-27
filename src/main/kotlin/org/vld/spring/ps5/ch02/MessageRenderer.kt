@@ -1,7 +1,8 @@
 package org.vld.spring.ps5.ch02
 
 import org.springframework.context.ApplicationContext
-import org.springframework.context.support.ClassPathXmlApplicationContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.context.support.ClassPathXmlApplicationContext // ktlint-disable no-unused-imports
 
 interface MessageProvider {
     val message: String
@@ -21,7 +22,8 @@ class PlainTextMessageRenderer(override val messageProvider: MessageProvider) : 
 }
 
 fun main(args: Array<String>) {
-    val context: ApplicationContext = ClassPathXmlApplicationContext("config/spring/app-context.xml")
+    //val context: ApplicationContext = ClassPathXmlApplicationContext("config/spring/message-renderer-app-context.xml")
+    val context: ApplicationContext = AnnotationConfigApplicationContext(MessageRendererConfiguration::class.java)
     val messageRenderer: MessageRenderer = context.getBean("plainTextMessageRenderer", MessageRenderer::class.java)
     messageRenderer.render()
 }
