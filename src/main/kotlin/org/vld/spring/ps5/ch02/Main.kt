@@ -15,10 +15,7 @@ interface MessageRenderer {
 class LiteralMessageProvider(override val message: String = "Hello Svitlana") : MessageProvider
 
 class PlainTextMessageRenderer(override val messageProvider: MessageProvider) : MessageRenderer {
-    override fun render(): String {
-        println(messageProvider.message)
-        return messageProvider.message
-    }
+    override fun render(): String = messageProvider.message
 }
 
 fun main(args: Array<String>) {
