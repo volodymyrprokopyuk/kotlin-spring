@@ -68,6 +68,7 @@ ext {
     kotlinVersion = "1.1.51"
     springVersion = "5.0.0.RELEASE"
     junitJupiterVersion = "5.0.1"
+    junitPlatformVersion = "1.0.1"
     assertJVersion = "3.8.0"
     mockitoVersion = "2.11.0"
     ktLintVersion = "0.10.0"
@@ -87,8 +88,10 @@ dependencies {
     compile "org.springframework:spring-context:$springVersion"
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
+    testCompile "org.junit.platform:junit-platform-runner:$junitPlatformVersion"
     testCompile "org.assertj:assertj-core:$assertJVersion"
     testCompile "org.mockito:mockito-core:$mockitoVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
     ktlint "com.github.shyiko:ktlint:$ktLintVersion"
 }
