@@ -12,7 +12,9 @@ interface MessageRenderer {
     fun render(): String
 }
 
-class LiteralMessageProvider(override val message: String = "Hello Svitlana") : MessageProvider
+class LiteralMessageProvider : MessageProvider {
+    override lateinit var message: String
+}
 
 class PlainTextMessageRenderer(override val messageProvider: MessageProvider) : MessageRenderer {
     override fun render(): String = messageProvider.message

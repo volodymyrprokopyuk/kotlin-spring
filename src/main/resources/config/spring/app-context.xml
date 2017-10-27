@@ -2,11 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="literalMessageProvider" class="org.vld.spring.ps5.ch02.LiteralMessageProvider"/>
-    <bean id="plainTextMessageRenderer" class="org.vld.spring.ps5.ch02.PlainTextMessageRenderer"
+    <bean id="literalMessageProvider"
+          class="org.vld.spring.ps5.ch02.LiteralMessageProvider"
+          p:message="Hello Svitlana"/>
+
+    <bean id="plainTextMessageRenderer"
+          class="org.vld.spring.ps5.ch02.PlainTextMessageRenderer"
           c:messageProvider-ref="literalMessageProvider"/>
 
 </beans>

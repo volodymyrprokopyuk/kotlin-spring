@@ -5,7 +5,7 @@
 # Testing Categories
 
 - **Logic Unit Tests**. Test single object in isolation with all the object dependencies mocked up. Tools: JUnit,
-  JAssert, Mockito
+  AssertJ, Mockito
 - **Component Integration Tests**. Test interactions of multiple components from different application layers. Tools:
   Jetty lightweight web container, H2 embedded database
 - **CI: Static Code Analysis and Unit/Integration Test Coverage**. Tools: Jenkins, Gradle, SonarQube, Cobertura, JaCoCo

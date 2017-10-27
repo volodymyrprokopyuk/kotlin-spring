@@ -1,20 +1,33 @@
 package org.vld.spring.ps5.ch02
 
-import org.assertj.core.api.Assertions.*
+import org.assertj.core.api.Assertions.* // ktlint-disable no-wildcard-imports
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import org.junit.platform.runner.JUnitPlatform
+import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.context.junit4.SpringRunner
 
-@RunWith(JUnitPlatform::class)
+@RunWith(SpringRunner::class)
+@ExtendWith(SpringExtension::class)
 @ContextConfiguration(locations = arrayOf("classpath:config/spring/app-context.xml"))
 class MainTest {
 
+    @Autowired
+    @Qualifier("plainTextMessageRenderer")
+    lateinit var messageRenderer: MessageRenderer
+
     @Test
-    @DisplayName("given when then")
-    fun given_when_then() {
-        assertThat(1).isEqualTo(1)
+    @DisplayName("Given a PainTextMessageRenderer. When render a message. Then the right message is rendered")
+    fun givenPlainTextMessageRenderer_whenRenderMessage_thenTheRightMessageIsRendered() {
+        // Given & When
+        val message = messageRenderer.render()
+        // Then
+        val expectedMessage = "Hello Svitlana"
+        assertThat(message).isEqualTo(expectedMessage)
     }
 
 }
