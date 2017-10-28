@@ -1,6 +1,6 @@
-package org.vld.spring.ps5.ch02
+package org.vld.spring.ps5.ch03
 
-import org.assertj.core.api.Assertions.* // ktlint-disable no-wildcard-imports
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -13,8 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
-//@ContextConfiguration(locations = arrayOf("classpath:config/spring/ch02-message-renderer-app-context.xml"))
-@ContextConfiguration(classes = arrayOf(MessageRendererConfiguration::class))
+@ContextConfiguration(locations = arrayOf("classpath:config/spring/ch03-message-renderer-app-context.xml"))
 class MessageRendererTest {
 
     @Autowired
@@ -28,7 +27,7 @@ class MessageRendererTest {
         val message = messageRenderer.render()
         // Then
         val expectedMessage = "Hello Svitlana"
-        assertThat(message).isEqualTo(expectedMessage)
+        Assertions.assertThat(message).isEqualTo(expectedMessage)
     }
 
 }
