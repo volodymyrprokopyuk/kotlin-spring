@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.ApplicationContext
-import org.springframework.context.support.ClassPathXmlApplicationContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.context.support.ClassPathXmlApplicationContext // ktlint-disable no-unused-imports
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 
@@ -31,8 +32,9 @@ class PlainTextMessageRenderer(
 }
 
 fun main(args: Array<String>) {
-    val context: ApplicationContext
-            = ClassPathXmlApplicationContext("config/spring/ch03-message-renderer-app-context.xml")
+    //val context: ApplicationContext
+    //        = ClassPathXmlApplicationContext("config/spring/ch03-message-renderer-app-context.xml")
+    val context: ApplicationContext = AnnotationConfigApplicationContext(MessageRendererConfiguration::class.java)
     // Inversion of Control (IoC) > Dependency Lookup > Dependency Pull
     val messageRenderer: MessageRenderer = context.getBean("plainTextMessageRenderer", MessageRenderer::class.java)
     messageRenderer.render()

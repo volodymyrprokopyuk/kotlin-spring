@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration
 open class MessageRendererConfiguration {
 
     @Bean
+    // method name is bean id or name
     open fun literalMessageProvider(): MessageProvider {
         val literalMessageProvider = LiteralMessageProvider()
         literalMessageProvider.message = "Hello Svitlana"
@@ -14,6 +15,7 @@ open class MessageRendererConfiguration {
     }
 
     @Bean
+    // method name is bean id or name
     open fun plainTextMessageRenderer(): MessageRenderer {
         val plainTextMessageRenderer = PlainTextMessageRenderer(literalMessageProvider())
         return plainTextMessageRenderer
