@@ -6,10 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- Setter Injection (configuration property defined in the interface,
+    set property default value and swat property value at runtime) -->
     <bean id="literalMessageProvider"
           class="org.vld.spring.ps5.ch02.LiteralMessageProvider"
           p:message="Hello Svitlana"/>
 
+    <!--Constructor Injection (immutable object) -->
     <bean id="plainTextMessageRenderer"
           class="org.vld.spring.ps5.ch02.PlainTextMessageRenderer"
           c:messageProvider-ref="literalMessageProvider"/>

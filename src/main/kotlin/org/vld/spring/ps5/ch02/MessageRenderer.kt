@@ -24,6 +24,7 @@ class PlainTextMessageRenderer(override val messageProvider: MessageProvider) : 
 fun main(args: Array<String>) {
     //val context: ApplicationContext = ClassPathXmlApplicationContext("config/spring/message-renderer-app-context.xml")
     val context: ApplicationContext = AnnotationConfigApplicationContext(MessageRendererConfiguration::class.java)
+    // Inversion of Control (IoC) > Dependency Lookup > Dependency Pull
     val messageRenderer: MessageRenderer = context.getBean("plainTextMessageRenderer", MessageRenderer::class.java)
     messageRenderer.render()
 }
