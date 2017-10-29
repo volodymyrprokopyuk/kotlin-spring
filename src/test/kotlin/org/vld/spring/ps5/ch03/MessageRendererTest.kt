@@ -1,6 +1,6 @@
 package org.vld.spring.ps5.ch03
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.* // ktlint-disable no-wildcard-imports
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -28,7 +28,7 @@ class MessageRendererTest {
         val message = messageRenderer.render()
         // Then
         val expectedMessage = "Hello Svitlana"
-        Assertions.assertThat(message).isEqualTo(expectedMessage)
+        assertThat(message).isEqualTo(expectedMessage)
     }
 
 }
