@@ -22,9 +22,9 @@ class EmployeeTest {
     @DisplayName("Given an Employee. When get the Employee. Then call the init methods on the Employee")
     fun givenEmployee_whenGetEmployee_thenCallTheInitMethodsOnTheEmployee() {
         // Given & When & Then
-        assertThat(employee.initCalled).isTrue()
-        assertThat(employee.afterPropertiesSetCalled).isTrue()
         assertThat(employee.postConstructCalled).isTrue()
+        assertThat(employee.afterPropertiesSetCalled).isTrue()
+        assertThat(employee.initMethodCalled).isTrue()
     }
 
 }

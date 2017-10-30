@@ -9,6 +9,9 @@
 
     <context:annotation-config/>
 
-    <bean id="employee" class="org.vld.spring.ps5.ch04.Employee" init-method="init"/>
+    <bean id="employee"
+          class="org.vld.spring.ps5.ch04.Employee"
+          init-method="initMethod"
+          destroy-method="destroyMethod"/>
 
 </beans>
