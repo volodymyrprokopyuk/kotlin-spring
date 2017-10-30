@@ -19,10 +19,12 @@ class EmployeeTest {
     lateinit var employee: Employee
 
     @Test
-    @DisplayName("Given an Employee. When get the Employee with init-method. Then call the init-method on the Employee")
-    fun givenEmployee_whenGetEmployeeWithInitMethod_thenCallTheInitMethodOnTheEmployee() {
+    @DisplayName("Given an Employee. When get the Employee. Then call the init methods on the Employee")
+    fun givenEmployee_whenGetEmployee_thenCallTheInitMethodsOnTheEmployee() {
         // Given & When & Then
         assertThat(employee.initCalled).isTrue()
+        assertThat(employee.afterPropertiesSetCalled).isTrue()
+        assertThat(employee.postConstructCalled).isTrue()
     }
 
 }
