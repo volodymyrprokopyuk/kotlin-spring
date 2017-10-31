@@ -72,6 +72,7 @@ ext {
     assertJVersion = "3.8.0"
     mockitoVersion = "2.11.0"
     ktLintVersion = "0.10.0"
+    slf4jSimpleVerion = "1.7.25"
 }
 
 repositories {
@@ -86,6 +87,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     compile "org.springframework:spring-context:$springVersion"
+    compile "org.slf4j:slf4j-simple:$slf4jSimpleVerion"
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     testCompile "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion"
     testCompile "org.junit.platform:junit-platform-runner:$junitPlatformVersion"
