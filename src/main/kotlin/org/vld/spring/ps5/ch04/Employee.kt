@@ -10,7 +10,9 @@ import javax.annotation.PreDestroy
 
 class Employee : InitializingBean, DisposableBean {
 
-    val logger: Logger = LoggerFactory.getLogger(Employee::class.java)
+    companion object {
+        private val logger: Logger = LoggerFactory.getLogger(Employee::class.java)
+    }
 
     var postConstructCalled: Boolean = false
     var afterPropertiesSetCalled: Boolean = false
