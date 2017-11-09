@@ -62,7 +62,7 @@ detekt {
 
 apply plugin: "application"
 
-mainClassName = "org.vld.spring.ps5.ch11.AsyncTaskKt"
+mainClassName = "org.vld.spring.ps5.ch04.EmployeeKt"
 
 ext {
     kotlinVersion = "1.1.51"
