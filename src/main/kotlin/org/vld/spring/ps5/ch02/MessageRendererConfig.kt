@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class MessageRendererConfiguration {
+open class MessageRendererConfig {
 
     @Bean
     // method name is bean id or name
