@@ -13,8 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
-//@ContextConfiguration(locations = arrayOf("classpath:config/spring/ch03-message-renderer-app-context.xml"))
-@ContextConfiguration(classes = arrayOf(MessageRendererConfiguration::class))
+@ContextConfiguration(classes = arrayOf(MessageRendererConfig::class))
 class MessageRendererTest {
 
     @Autowired
