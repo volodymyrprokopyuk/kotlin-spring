@@ -8,17 +8,12 @@ open class MessageRendererConfiguration {
 
     @Bean
     // method name is bean id or name
-    open fun literalMessageProvider(): MessageProvider {
-        val literalMessageProvider = LiteralMessageProvider()
-        literalMessageProvider.message = "Hello Svitlana"
-        return literalMessageProvider
-    }
+    // prefer constructor injection to produce immutable objects
+    open fun literalMessageProvider(): MessageProvider = LiteralMessageProvider("Hello Svitlana")
 
     @Bean
     // method name is bean id or name
-    open fun plainTextMessageRenderer(): MessageRenderer {
-        val plainTextMessageRenderer = PlainTextMessageRenderer(literalMessageProvider())
-        return plainTextMessageRenderer
-    }
+    // prefer constructor injection to produce immutable objects
+    open fun plainTextMessageRenderer(): MessageRenderer = PlainTextMessageRenderer(literalMessageProvider())
 
 }

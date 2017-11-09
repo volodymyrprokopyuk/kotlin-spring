@@ -9,23 +9,20 @@ interface MessageProvider {
 }
 
 interface MessageRenderer {
-    val messageProvider: MessageProvider
     fun render(): String
 }
 
-class LiteralMessageProvider : MessageProvider {
-    override lateinit var message: String
-}
+// prefer constructor injection, after construction the object is in valid state
+class LiteralMessageProvider(override val message: String) : MessageProvider
 
-class PlainTextMessageRenderer(override val messageProvider: MessageProvider) : MessageRenderer {
+// prefer constructor injection, after construction the object is in valid state
+class PlainTextMessageRenderer(val messageProvider: MessageProvider) : MessageRenderer {
     override fun render(): String = messageProvider.message
 }
 
 fun main(args: Array<String>) {
-    //val context: ApplicationContext
-    //        = ClassPathXmlApplicationContext("config/spring/ch02-message-renderer-app-context.xml")
     val context: ApplicationContext = AnnotationConfigApplicationContext(MessageRendererConfiguration::class.java)
-    // Inversion of Control (IoC) > Dependency Lookup > Dependency Pull
+    // Inversion of Control (IoC) > Dependency Lookup > Dependency Pull (by IoC container)
     val messageRenderer: MessageRenderer = context.getBean("plainTextMessageRenderer", MessageRenderer::class.java)
     messageRenderer.render()
 }

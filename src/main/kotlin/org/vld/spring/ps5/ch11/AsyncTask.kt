@@ -43,7 +43,7 @@ class AsyncTaskExecutor {
     lateinit var taskExecutor: TaskExecutor
 
     fun executeAsyncTasks() {
-        for(task in 1..0) taskExecutor.execute { logger.info("Task $task finished") }
+        for (task in 1..0) taskExecutor.execute { logger.info("Task $task finished") }
     }
 }
 
