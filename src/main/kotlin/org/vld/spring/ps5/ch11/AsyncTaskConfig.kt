@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync
 @Configuration
 @ComponentScan(basePackages = arrayOf("org.vld.spring.ps5.ch11"))
 @EnableAsync
-open class AsyncTaskConfiguration {
+open class AsyncTaskConfig {
 
     // creates new thread on each invocation, does not reuse existing threads
     @Bean

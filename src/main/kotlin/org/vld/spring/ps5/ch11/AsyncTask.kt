@@ -40,16 +40,16 @@ class AsyncTaskExecutor {
     }
 
     @Resource(name = "simpleAsyncTaskExecutor")
-    lateinit var taskExecutor: TaskExecutor
+    private lateinit var taskExecutor: TaskExecutor
 
     fun executeAsyncTasks() {
-        for (task in 1..0) taskExecutor.execute { logger.info("Task $task finished") }
+        for (task in 1..2) taskExecutor.execute { logger.info("Task $task finished") }
     }
 }
 
 fun main(args: Array<String>) {
     val logger: Logger = LoggerFactory.getLogger("org.vld.spring.ps5.ch11.MainKt")
-    val context: ApplicationContext = AnnotationConfigApplicationContext(AsyncTaskConfiguration::class.java)
+    val context: ApplicationContext = AnnotationConfigApplicationContext(AsyncTaskConfig::class.java)
     val asyncTask: AsyncTask = context.getBean("asyncTask", AsyncTask::class.java)
     // start simple async tasks
     asyncTask.simpleAsyncTask()
@@ -57,7 +57,7 @@ fun main(args: Array<String>) {
     // start async tasks and store Future result
     val asyncResult1 = asyncTask.asyncTaskWithParametersAndReturnValue("Task 1")
     val asyncResult2 = asyncTask.asyncTaskWithParametersAndReturnValue("Task 2")
-    // wait for all task completion
+    // wait for all async tasks to complete
     Thread.sleep(1100)
     // retrieve Future result
     logger.info(asyncResult1.get())
