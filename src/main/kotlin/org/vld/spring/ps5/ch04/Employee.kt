@@ -59,7 +59,7 @@ class Employee : InitializingBean, DisposableBean {
 fun main(args: Array<String>) {
     val context = ClassPathXmlApplicationContext("classpath:config/spring/ch04-employee-app-context.xml")
     context.getBean("employee", Employee::class.java)
-    //context.close();
+    //context.close()
     // register shutdown hook in new thread with JVM
-    context.registerShutdownHook();
+    context.registerShutdownHook()
 }

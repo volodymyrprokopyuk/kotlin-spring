@@ -42,8 +42,9 @@ class AsyncTaskExecutor {
     @Resource(name = "simpleAsyncTaskExecutor")
     lateinit var taskExecutor: TaskExecutor
 
-    fun executeAsyncTasks() = (1..2).forEach { task -> taskExecutor.execute { logger.info("Task $task finished") } }
-
+    fun executeAsyncTasks() {
+        for(task in 1..0) taskExecutor.execute { logger.info("Task $task finished") }
+    }
 }
 
 fun main(args: Array<String>) {

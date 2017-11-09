@@ -16,7 +16,7 @@ import javax.annotation.Resource
 class EmployeeTest {
 
     @Resource(name = "employee")
-    lateinit var employee: Employee
+    private lateinit var employee: Employee
 
     @Test
     @DisplayName("Given an Employee. When get the Employee. Then call the init methods on the Employee")

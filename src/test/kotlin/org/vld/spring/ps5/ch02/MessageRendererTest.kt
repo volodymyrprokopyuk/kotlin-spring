@@ -19,7 +19,7 @@ class MessageRendererTest {
 
     @Autowired
     @Qualifier("plainTextMessageRenderer")
-    lateinit var messageRenderer: MessageRenderer
+    private lateinit var messageRenderer: MessageRenderer
 
     @Test
     @DisplayName("Given a PainTextMessageRenderer. When render a message. Then the right message is rendered")

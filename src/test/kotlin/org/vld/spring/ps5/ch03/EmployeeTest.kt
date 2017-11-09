@@ -19,7 +19,7 @@ class EmployeeTest {
 
     @Autowired
     @Qualifier("employee")
-    lateinit var employee: Employee
+    private lateinit var employee: Employee
 
     @Test
     @DisplayName("Given an employee. When create the employee. Then the employee is properly configured")
