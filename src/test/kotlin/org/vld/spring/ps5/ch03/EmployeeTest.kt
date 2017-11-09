@@ -14,7 +14,7 @@ import java.util.Properties
 
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = arrayOf(EmployeeConfiguration::class))
+@ContextConfiguration(classes = arrayOf(EmployeeConfig::class))
 class EmployeeTest {
 
     @Autowired
@@ -26,7 +26,6 @@ class EmployeeTest {
     fun givenEmployee_whenCreateEmployee_thenReturnProperlyConfiguredEmployee() {
         // Given & When
         val firstName = employee.firstName
-        val fullName = employee.fullName
         val responsibilities = employee.responsibilities
         val competencies = employee.competencies
         val education = employee.education
@@ -34,8 +33,6 @@ class EmployeeTest {
         // Then
         val expectedFirstName = "Volodymyr"
         assertThat(firstName).isEqualTo(expectedFirstName)
-        val expectedFullName = "Volodymyr Prokopyuk"
-        assertThat(fullName).isEqualTo(expectedFullName)
         val expectedResponsibilities = listOf(
                 "Requirements Elicitation",
                 "Software Design",
