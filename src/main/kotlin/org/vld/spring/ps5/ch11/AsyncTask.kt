@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component
 import java.util.concurrent.Future
 import javax.annotation.Resource
 
-@Component("asyncTask")
 open class AsyncTask {
 
     companion object {
@@ -32,19 +31,16 @@ open class AsyncTask {
 
 }
 
-@Component("asyncTaskExecutor")
-class AsyncTaskExecutor {
+class AsyncTaskExecutor(private val taskExecutor: TaskExecutor) {
 
     companion object {
         private val logger: Logger = LoggerFactory.getLogger(AsyncTaskExecutor::class.java)
     }
 
-    @Resource(name = "simpleAsyncTaskExecutor")
-    private lateinit var taskExecutor: TaskExecutor
-
     fun executeAsyncTasks() {
         for (task in 1..2) taskExecutor.execute { logger.info("Task $task finished") }
     }
+
 }
 
 fun main(args: Array<String>) {

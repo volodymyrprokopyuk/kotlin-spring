@@ -12,8 +12,14 @@ import org.springframework.scheduling.annotation.EnableAsync
 @EnableAsync
 open class AsyncTaskConfig {
 
+    @Bean
+    open fun asyncTask(): AsyncTask = AsyncTask()
+
     // creates new thread on each invocation, does not reuse existing threads
     @Bean
     open fun simpleAsyncTaskExecutor(): TaskExecutor = SimpleAsyncTaskExecutor()
+
+    @Bean
+    open fun asyncTaskExecutor(): AsyncTaskExecutor = AsyncTaskExecutor(simpleAsyncTaskExecutor())
 
 }
