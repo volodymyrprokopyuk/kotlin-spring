@@ -7,9 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.core.task.TaskExecutor
 import org.springframework.scheduling.annotation.Async
 import org.springframework.scheduling.annotation.AsyncResult
-import org.springframework.stereotype.Component
 import java.util.concurrent.Future
-import javax.annotation.Resource
 
 open class AsyncTask {
 
