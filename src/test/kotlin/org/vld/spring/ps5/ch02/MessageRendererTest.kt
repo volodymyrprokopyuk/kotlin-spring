@@ -29,5 +29,4 @@ class MessageRendererTest {
         val expectedMessage = "Hello Svitlana"
         assertThat(message).isEqualTo(expectedMessage)
     }
-
 }

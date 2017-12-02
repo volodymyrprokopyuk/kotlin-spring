@@ -26,7 +26,6 @@ open class AsyncTask {
         Thread.sleep(1000)
         return AsyncResult<String>("$task finished")
     }
-
 }
 
 class AsyncTaskExecutor(private val taskExecutor: TaskExecutor) {
@@ -38,7 +37,6 @@ class AsyncTaskExecutor(private val taskExecutor: TaskExecutor) {
     fun executeAsyncTasks() {
         for (task in 1..2) taskExecutor.execute { logger.info("Task $task finished") }
     }
-
 }
 
 fun main(args: Array<String>) {

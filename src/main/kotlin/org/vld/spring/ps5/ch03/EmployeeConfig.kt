@@ -45,5 +45,4 @@ open class EmployeeConfig {
             education = education(),
             contact = contact()
     )
-
 }

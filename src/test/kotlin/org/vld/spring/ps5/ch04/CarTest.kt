@@ -31,7 +31,6 @@ class CarTest {
         val expectedModel = "V8"
         assertThat(model).isEqualTo(expectedModel)
     }
-
 }
 
 @RunWith(SpringRunner::class)
@@ -56,7 +55,6 @@ class ProfileACarTest {
         val expectedModel = "ProfileA V8"
         assertThat(model).isEqualTo(expectedModel)
     }
-
 }
 
 @RunWith(SpringRunner::class)
@@ -81,5 +79,4 @@ class ProfileBCarTest {
         val expectedModel = "ProfileB V8"
         assertThat(model).isEqualTo(expectedModel)
     }
-
 }

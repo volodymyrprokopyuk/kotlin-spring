@@ -10,5 +10,4 @@ open class ScheduledTaskConfig {
 
     @Bean
     open fun scheduledTask(): ScheduledTask = ScheduledTask()
-
 }

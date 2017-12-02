@@ -54,5 +54,4 @@ class EmployeeTest {
         expectedContact.setProperty("org.vld.spring.phone", "123456789")
         assertThat(contact).isEqualTo(expectedContact)
     }
-
 }

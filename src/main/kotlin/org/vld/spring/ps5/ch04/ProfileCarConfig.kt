@@ -22,7 +22,6 @@ open class ProfileACarConfig {
 
     @Bean
     open fun car(): Car = Car(make, engine())
-
 }
 
 @Configuration
@@ -41,5 +40,4 @@ open class ProfileBCarConfig {
 
     @Bean
     open fun car(): Car = Car(make, engine())
-
 }

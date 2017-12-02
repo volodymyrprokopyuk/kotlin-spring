@@ -8,5 +8,4 @@ open class EmployeeConfig {
 
     @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     open fun employee() = Employee()
-
 }

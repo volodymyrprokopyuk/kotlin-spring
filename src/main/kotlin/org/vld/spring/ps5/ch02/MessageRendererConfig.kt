@@ -21,5 +21,4 @@ open class MessageRendererConfig {
     // method name is bean id or name
     // prefer constructor injection to produce immutable objects
     open fun plainTextMessageRenderer(): MessageRenderer = PlainTextMessageRenderer(literalMessageProvider())
-
 }

@@ -44,7 +44,6 @@ class Employee : InitializingBean, DisposableBean {
     fun destroyMethod() {
         logger.info("** Employee::@Bean(destroyMethod)")
     }
-
 }
 
 fun main(args: Array<String>) {

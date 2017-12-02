@@ -21,5 +21,4 @@ open class AsyncTaskConfig {
 
     @Bean
     open fun asyncTaskExecutor(): AsyncTaskExecutor = AsyncTaskExecutor(simpleAsyncTaskExecutor())
-
 }

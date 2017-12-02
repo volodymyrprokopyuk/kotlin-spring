@@ -14,5 +14,4 @@ open class CarConfig {
 
     @Bean
     open fun car(): Car = Car("BMW", engineConfig.engine())
-
 }

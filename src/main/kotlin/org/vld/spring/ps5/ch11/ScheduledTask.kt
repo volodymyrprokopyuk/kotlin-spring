@@ -15,7 +15,6 @@ class ScheduledTask {
     fun scheduledTask() {
         logger.info("** Scheduled Task started")
     }
-
 }
 
 fun main(args: Array<String>) {

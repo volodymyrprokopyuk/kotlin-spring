@@ -8,5 +8,4 @@ open class EngineConfig {
 
     @Bean
     open fun engine(): Engine = Engine("V8")
-
 }
