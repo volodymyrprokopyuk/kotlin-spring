@@ -8,7 +8,7 @@ import org.springframework.core.task.TaskExecutor
 import org.springframework.scheduling.annotation.EnableAsync
 
 @Configuration
-@ComponentScan(basePackages = arrayOf("org.vld.spring.ps5.ch11"))
+@ComponentScan(basePackages = ["org.vld.spring.ps5.ch11"])
 @EnableAsync
 open class AsyncTaskConfig {
 

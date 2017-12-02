@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 import java.util.Properties
 
 @Configuration
-@ComponentScan(basePackages = arrayOf("org.vld.spring.ps5.ch03"))
+@ComponentScan(basePackages = ["org.vld.spring.ps5.ch03"])
 open class EmployeeConfig {
 
     @Bean

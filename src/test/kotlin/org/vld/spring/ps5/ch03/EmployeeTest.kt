@@ -14,7 +14,7 @@ import java.util.Properties
 
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = arrayOf(EmployeeConfig::class))
+@ContextConfiguration(classes = [EmployeeConfig::class])
 class EmployeeTest {
 
     @Autowired

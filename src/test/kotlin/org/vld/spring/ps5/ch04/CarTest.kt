@@ -13,7 +13,7 @@ import javax.annotation.Resource
 
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = arrayOf(CarConfig::class))
+@ContextConfiguration(classes = [CarConfig::class])
 class CarTest {
 
     @Resource(name = "car")
@@ -36,7 +36,7 @@ class CarTest {
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
 // load all configuration profiles into application context
-@ContextConfiguration(classes = arrayOf(ProfileACarConfig::class, ProfileBCarConfig::class))
+@ContextConfiguration(classes = [ProfileACarConfig::class, ProfileBCarConfig::class])
 @ActiveProfiles("ProfileA")
 class ProfileACarTest {
 
@@ -60,7 +60,7 @@ class ProfileACarTest {
 @RunWith(SpringRunner::class)
 @ExtendWith(SpringExtension::class)
 // load all configuration profiles into application context
-@ContextConfiguration(classes = arrayOf(ProfileACarConfig::class, ProfileBCarConfig::class))
+@ContextConfiguration(classes = [ProfileACarConfig::class, ProfileBCarConfig::class])
 @ActiveProfiles("ProfileB")
 class ProfileBCarTest {
 
